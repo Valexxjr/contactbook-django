@@ -1,9 +1,8 @@
 from django.db import models
-from django.utils import timezone
 
 
 class Contact(models.Model):
-    id = models.IntegerField(primary_key=True, max_length=11)
+    id = models.IntegerField(primary_key=True)
     first_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)
     patronymic = models.CharField(max_length=40)
@@ -17,7 +16,7 @@ class Contact(models.Model):
 
 
 class Phone(models.Model):
-    id = models.IntegerField(primary_key=True, max_length=11)
+    id = models.IntegerField(primary_key=True)
     contact = models.ForeignKey(Contact, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=20)
     note = models.CharField(max_length=50)
@@ -32,7 +31,7 @@ class Phone(models.Model):
 
 
 class Attachment(models.Model):
-    id = models.IntegerField(primary_key=True, max_length=11)
+    id = models.IntegerField(primary_key=True)
     contact = models.ForeignKey(Contact, on_delete=models.CASCADE)
     file_name = models.CharField(max_length=50)
     upload_date = models.DateField()
