@@ -1,3 +1,15 @@
+{% load static %}
+
+<html>
+<head>
+    <title>ContactBook</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'crud/style.css' %}">
+</head>
+
+<body>
 <div class="container">
     <h1 class="text-center">Contacts</h1>
     <button id="send_email" class="btn btn-warning">Send email</button>
@@ -19,7 +31,8 @@
             <tr>
                 <td><input class="checkbox" type="checkbox"></td>
                 <td class="d-none">{{contact.id}}</td>
-                <td><a href="{% url 'crud:detail' contact.id %}">{{contact.last_name}} {{contact.first_name}} {{contact.patronymic}}</a></td>
+                <td><a href="{% url 'crud:detail' contact.id %}">{{contact.last_name}} {{contact.first_name}}
+                    {{contact.patronymic}}</a></td>
             </tr>
 
             {% endfor %}
@@ -31,3 +44,6 @@
         </nav>
     </div>
 </div>
+</body>
+
+</html>

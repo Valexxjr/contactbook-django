@@ -1,3 +1,15 @@
+{% load static %}
+
+<html>
+<head>
+    <title>ContactBook</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'crud/style.css' %}">
+</head>
+
+<body>
 <h1 class="text-center">Add/Edit Contact</h1>
 <div class="b-popup" id="form_image">
     <div class="b-popup-content">
@@ -21,7 +33,7 @@
 <div class="container-fluid col-lg-4">
     <form role="form" id="form_contact">
         <input class="d-none" type="text" id="contact_id">
-        <div> class="form-group">
+        <div class="form-group">
             <label for="first_name" class="control-label">First Name(*)</label>
             <input type="text" id="first_name" class="form-control" value="{{contact.first_name}}">
             <label class="control-label d-none">Field cannot be empty</label>
@@ -118,3 +130,5 @@
         <button type="submit" class="btn-success btn-lg">Add contact</button>
     </form>
 </div>
+</body>
+</html>
