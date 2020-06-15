@@ -45,12 +45,12 @@
         </div>
         <div class="form-group">
             <label for="patronymic" class="control-label">Patronymic</label>
-            <input type="text" id="patronymic" class="form-control" value="{{contact.patronymic}}">
+            <input type="text" id="patronymic" class="form-control" value="{{contact.patronymic|default_if_none:""}}">
             <label class="control-label d-none">Invalid patronymic</label>
         </div>
         <div class="form-group">
             <label for="birthday_date" class="control-label">Birthday</label>
-            <input type="date" id="birthday_date" class="form-control">
+            <input type="date" id="birthday_date" class="form-control" value="{{contact.birth_date|default_if_none:""}}">
             <label class="control-label d-none">Invalid birthdate</label>
         </div>
         <div class="form-group">
@@ -70,7 +70,7 @@
         </div>
         <div class="form-group">
             <label for="citizenship" class="control-label">Citizenship</label>
-            <input type="text" id="citizenship" class="form-control">
+            <input type="text" id="citizenship" class="form-control" value="{{contact.citizenship|default_if_none:""}}">
             <label class="control-label d-none">Invalid citizenship</label>
         </div>
 
@@ -86,47 +86,47 @@
 
         <div class="form-group">
             <label for="website" class="control-label">Web Site</label>
-            <input type="text" id="website" class="form-control">
+            <input type="text" id="website" class="form-control" value="{{contact.website|default_if_none:""}}">
             <label class="control-label d-none">Invalid website</label>
         </div>
 
         <div class="form-group">
             <label for="email" class="control-label">Email</label>
-            <input type="email" id="email" class="form-control">
+            <input type="email" id="email" class="form-control" value="{{contact.email|default_if_none:""}}">
             <label class="control-label d-none">Invalid email</label>
         </div>
 
         <div class="form-group">
             <label for="place_of_work" class="control-label">Place of work</label>
-            <input type="text" id="place_of_work" class="form-control">
+            <input type="text" id="place_of_work" class="form-control" value="{{contact.place_of_work|default_if_none:""}}">
             <label class="control-label d-none">Invalid place of work</label>
         </div>
 
         <div class="form-group">
             <label for="country" class="control-label">Country</label>
-            <input type="text" id="country" class="form-control">
+            <input type="text" id="country" class="form-control" value="{{contact.country|default_if_none:""}}">
             <label class="control-label d-none">Invalid country</label>
         </div>
 
         <div class="form-group">
             <label for="city" class="control-label">City</label>
-            <input type="text" id="city" class="form-control">
+            <input type="text" id="city" class="form-control" value="{{contact.city|default_if_none:""}}">
             <label class="control-label d-none">Invalid city</label>
         </div>
 
         <div class="form-group">
             <label for="street" class="control-label">Street</label>
-            <input type="text" id="street" class="form-control">
+            <input type="text" id="street" class="form-control" value="{{contact.street|default_if_none:""}}">
             <label class="control-label d-none">Invalid street</label>
         </div>
 
         <div class="form-group">
             <label for="zip_code" class="control-label">Zip-code</label>
-            <input type="text" id="zip_code" class="form-control">
+            <input type="text" id="zip_code" class="form-control" value="{{contact.zip_code|default_if_none:""}}">
             <label class="control-label d-none">Invalid zip-code</label>
         </div>
 
-        <button type="reset" class="btn-error btn-lg" onclick="history.back()">Cancel</button>
+        <button type="reset" class="btn-error btn-lg">Cancel</button>
         <button type="submit" class="btn-success btn-lg">Add contact</button>
     </form>
 </div>

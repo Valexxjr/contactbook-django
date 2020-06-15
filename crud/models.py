@@ -7,6 +7,15 @@ class Contact(models.Model):
     last_name = models.CharField(max_length=40)
     patronymic = models.CharField(max_length=40)
     birth_date = models.DateField()
+    citizenship = models.CharField(max_length=40)
+    website = models.CharField(max_length=40)
+    email = models.CharField(max_length=40)
+    place_of_work = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    street = models.CharField(max_length=50)
+    zip_code = models.CharField(max_length=10)
+    image = models.CharField(max_length=45)
 
     def __str__(self):
         return self.first_name
