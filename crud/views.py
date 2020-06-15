@@ -1,16 +1,13 @@
 from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render
 
 from .models import Contact
 
 
 def index(request):
     contact_list = Contact.objects.all()
-    template = loader.get_template('crud/contact_table.html')
-    context = {
-        'contact_list': contact_list,
-    }
-    return HttpResponse(template.render(context, request))
+    context = {'contact_list': contact_list}
+    return render(request, 'crud/contact_table.html', context)
 
 
 def detail(request, contact_id):
