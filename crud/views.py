@@ -1,5 +1,4 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from .models import Contact
 
@@ -11,5 +10,5 @@ def index(request):
 
 
 def detail(request, contact_id):
-    return HttpResponse("You're looking at contact %s." % contact_id)
-
+    contact = get_object_or_404(Contact, pk=contact_id)
+    return render(request, 'crud/contact.html', {'contact': contact})
