@@ -19,7 +19,7 @@
             <tr>
                 <td><input class="checkbox" type="checkbox"></td>
                 <td class="d-none">{{contact.id}}</td>
-                <td><a href="contacts/{{ contact.id }}">{{contact.last_name}} {{contact.first_name}} {{contact.patronymic}}</a></td>
+                <td><a href="{% url 'crud:detail' contact.id %}">{{contact.last_name}} {{contact.first_name}} {{contact.patronymic}}</a></td>
             </tr>
 
             {% endfor %}
