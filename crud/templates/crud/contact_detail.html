@@ -31,7 +31,8 @@
     </div>
 </div>
 <div class="container-fluid col-lg-4">
-    <form role="form" id="form_contact">
+    <form method="post">
+        {% csrf_token %}
         <input class="d-none" type="text" id="contact_id">
         <div class="form-group">
             <label for="first_name" class="control-label">First Name(*)</label>
@@ -126,9 +127,9 @@
             <label class="control-label d-none">Invalid zip-code</label>
         </div>
 
-        <button type="reset" class="btn-error btn-lg">Cancel</button>
-        <button type="submit" class="btn-success btn-lg">Add contact</button>
+
     </form>
+            <a href="{% url 'crud:update' contact.id %}" class="btn-success btn-lg">Edit</a>
 </div>
 </body>
 </html>

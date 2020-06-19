@@ -10,3 +10,11 @@ class IndexView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = Contact
+
+
+class ContactUpdate(generic.UpdateView):
+    model = Contact
+    fields = ['first_name', 'last_name', 'patronymic', 'birth_date', 'city']
+    template_name_suffix = '_form'
+
+    success_url = '/crud'
