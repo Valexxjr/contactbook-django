@@ -12,16 +12,14 @@
 <body>
 <div class="container">
     <h1 class="text-center">Contacts</h1>
-    <button id="send_email" class="btn btn-warning">Send email</button>
-    <button class="btn btn-danger pull-right" id="delete_contact">Delete</button>
 
     <div class="table-responsive">
         <table class="table table-hover" id="table_contact">
             <thead>
             <tr class="active">
-                <th>Check</th>
-                <th class="d-none">Id</th>
                 <th>Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
             </thead>
 
@@ -29,10 +27,10 @@
 
             {% for contact in contact_list %}
             <tr>
-                <td><input class="checkbox" type="checkbox"></td>
-                <td class="d-none">{{contact.id}}</td>
-                <td><a href="{% url 'crud:detail' contact.id %}">{{contact.last_name}} {{contact.first_name}}
+                <td><a href="{% url 'crud:contact_detail' contact.id %}">{{contact.last_name}} {{contact.first_name}}
                     {{contact.patronymic|default_if_none:""}}</a></td>
+                <td class="edit"><a href="{% url 'crud:contact_update' contact.id %}" class="btn-info btn">Edit</a></td>
+                <td class="edit"><a href="{% url 'crud:contact_delete' contact.id %}" class="btn-danger btn">Delete</a></td>
             </tr>
 
             {% endfor %}
