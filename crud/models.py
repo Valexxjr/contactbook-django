@@ -50,3 +50,9 @@ class Attachment(models.Model):
 
     class Meta:
         db_table = "attachment"
+
+
+class Group(models.Model):
+    id = models.IntegerField(primary_key=True)
+    group_name = models.CharField(max_length=50)
+    contacts = models.ManyToManyField(Contact)
