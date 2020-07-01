@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.views import generic
 
-from .models import Contact, Phone, Attachment
+from .models import Contact, Phone, Attachment, Group
 
 
 class IndexView(generic.ListView):
@@ -66,6 +66,15 @@ class AttachmentCreate(generic.CreateView):
 
     def get_success_url(self):
         return reverse('crud:contact_detail', kwargs={'pk': self.kwargs.get('pk')})
+
+
+class GroupCreate(generic.CreateView):
+    model = Group
+    fields = ['group_name']
+    template_name_suffix = '_form'
+
+    def get_success_url(self):
+        return reverse('crud:index')
 
 
 def delete_contact(request, pk):

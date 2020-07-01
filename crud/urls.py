@@ -15,4 +15,5 @@ urlpatterns = [
     path('contacts/<int:pk>/attachments/create', views.AttachmentCreate.as_view(), name='attachment_create'),
     path('contacts/<int:contact_id>/phones/<int:pk>/delete', delete_phone, name='phone_delete'),
     path('contacts/<int:contact_id>/attachments/<int:pk>/delete', delete_attachment, name='attachment_delete'),
+    path('groups/create', views.GroupCreate.as_view(), name='group_create'),
 ]
