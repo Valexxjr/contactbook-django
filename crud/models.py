@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 
 class Contact(models.Model):
@@ -56,3 +57,11 @@ class Group(models.Model):
     id = models.IntegerField(primary_key=True)
     group_name = models.CharField(max_length=50)
     contacts = models.ManyToManyField(Contact)
+
+
+class ContactForm(forms.ModelForm):
+    groups = forms.ModelMultipleChoiceField(queryset=Group.objects.all(), widget=forms.CheckboxSelectMultiple)
+
+    class Meta:
+        model = Contact
+        fields = ['first_name', 'last_name', 'patronymic', 'birth_date', 'city', 'country', 'citizenship']
