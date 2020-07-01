@@ -12,7 +12,8 @@
 <body>
 <div class="container">
     <h1 class="text-center">Contacts</h1>
-        <a href="{% url 'crud:group_list' %}" class="btn-success btn">Manage Contact Groups</a>
+        <a href="{% url 'crud:group_list' %}" class="btn-warning btn">Manage Contact Groups</a>
+        <a href="{% url 'crud:contact_create' %}" class="btn-success btn">Create Contact</a>
     <div class="table-responsive">
         <table class="table table-hover" id="table_contact">
             <thead>

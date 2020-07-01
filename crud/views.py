@@ -33,6 +33,21 @@ class ContactUpdate(generic.UpdateView):
         return reverse('crud:contact_detail', kwargs={'pk': self.kwargs.get('pk')})
 
 
+class ContactCreate(generic.CreateView):
+    model = Contact
+    form_class = ContactForm
+    template_name_suffix = '_form'
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.save()
+        #form.save_m2m()
+        return redirect('crud:index')
+
+    def get_success_url(self):
+        return reverse('crud:contact_detail', kwargs={'pk': self.kwargs.get('pk')})
+
+
 class PhoneUpdate(generic.UpdateView):
     model = Phone
     fields = ['phone_number', 'operator_code', 'country_code', 'note']
