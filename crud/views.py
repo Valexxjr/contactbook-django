@@ -11,6 +11,11 @@ class IndexView(generic.ListView):
         return Contact.objects.all()
 
 
+class GroupList(generic.ListView):
+    def get_queryset(self):
+        return Group.objects.all()
+
+
 class DetailView(generic.DetailView):
     model = Contact
 
@@ -21,7 +26,7 @@ class ContactUpdate(generic.UpdateView):
     template_name_suffix = '_form'
 
     def form_valid(self, form):
-        form.instance.group_set.set(form.cleaned_data['groups'])
+        form.instance.groups.set(form.cleaned_data['groups'])
         return super(ContactUpdate, self).form_valid(form)
 
     def get_success_url(self):
@@ -78,7 +83,16 @@ class GroupCreate(generic.CreateView):
     template_name_suffix = '_form'
 
     def get_success_url(self):
-        return reverse('crud:index')
+        return reverse('crud:group_list')
+
+
+class GroupUpdate(generic.UpdateView):
+    model = Group
+    fields = ['group_name']
+    template_name_suffix = '_form'
+
+    def get_success_url(self):
+        return reverse('crud:group_list')
 
 
 def delete_contact(request, pk):
@@ -97,3 +111,9 @@ def delete_attachment(request, contact_id, pk):
     attachment = Attachment.objects.get(pk=pk)
     attachment.delete()
     return HttpResponseRedirect(reverse('crud:contact_detail', args=(contact_id,)))
+
+
+def delete_group(request, pk):
+    group = Group.objects.get(pk=pk)
+    group.delete()
+    return redirect('crud:group_list')

@@ -1,0 +1,21 @@
+{% load static %}
+<html>
+<head>
+    <title>ContactBook</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'crud/style.css' %}">
+</head>
+
+<body>
+<div class="container col-md-6">
+    <h2>Create group</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-success" value="Create">
+    </form>
+</div>
+</body>
+</html>

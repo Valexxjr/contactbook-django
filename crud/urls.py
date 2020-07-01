@@ -1,11 +1,14 @@
 from django.urls import path
 
 from . import views
-from .views import delete_contact, delete_phone, delete_attachment
+from .views import delete_contact, delete_phone, delete_attachment, delete_group
 
 app_name = 'crud'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
+    path('groups', views.GroupList.as_view(), name='group_list'),
+    path('groups/<int:pk>/update', views.GroupUpdate.as_view(), name='group_update'),
+    path('groups/<int:pk>/delete', delete_group, name='group_delete'),
     path('contacts/<int:pk>/', views.DetailView.as_view(), name='contact_detail'),
     path('contacts/<int:pk>/update', views.ContactUpdate.as_view(), name='contact_update'),
     path('contacts/<int:pk>/delete', delete_contact, name='contact_delete'),

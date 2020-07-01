@@ -15,6 +15,10 @@
 <form method="post">
     {% csrf_token %}
     <div class="container-fluid col-lg-6">
+        {% for group in contact.groups.all %}
+            <span class="btn btn-primary">{{ group.group_name }}</span>
+        {% endfor %}
+        <p></p>
         <div class="form-group">
             <label class="control-label">First Name (*)</label>
             <input class="form-control" value="{{contact.first_name}}" readonly>

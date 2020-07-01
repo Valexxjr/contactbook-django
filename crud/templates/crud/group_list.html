@@ -11,14 +11,14 @@
 
 <body>
 <div class="container">
-    <h1 class="text-center">Contacts</h1>
-        <a href="{% url 'crud:group_list' %}" class="btn-success btn">Manage Contact Groups</a>
+    <h1 class="text-center">Groups</h1>
+        <a href="{% url 'crud:index' %}" class="btn-warning btn">Back to Contact List</a>
+        <a href="{% url 'crud:group_create' %}" class="btn-success btn">Create Contact Group</a>
     <div class="table-responsive">
         <table class="table table-hover" id="table_contact">
             <thead>
             <tr class="active">
                 <th>Name</th>
-                <th>Group(s)</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -26,17 +26,11 @@
 
             <tbody>
 
-            {% for contact in contact_list %}
+            {% for group in group_list %}
             <tr>
-                <td><a href="{% url 'crud:contact_detail' contact.id %}">{{contact.last_name}} {{contact.first_name}}
-                    {{contact.patronymic|default_if_none:""}}</a></td>
-                <td><ul>
-                    {% for group in contact.groups.all %}
-                        <li>{{ group.group_name }}</li>
-                    {% endfor %}
-                </ul></td>
-                <td class="edit"><a href="{% url 'crud:contact_update' contact.id %}" class="btn-info btn">Edit</a></td>
-                <td class="edit"><a href="{% url 'crud:contact_delete' contact.id %}" class="btn-danger btn">Delete</a></td>
+                <td>{{group.group_name}}</td>
+                <td class="edit"><a href="{% url 'crud:group_update' group.id %}" class="btn-info btn">Edit</a></td>
+                <td class="edit"><a href="{% url 'crud:group_delete' group.id %}" class="btn-danger btn">Delete</a></td>
             </tr>
 
             {% endfor %}
